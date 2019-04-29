@@ -1,5 +1,6 @@
 import React from 'react'
 import Post from './Post'
+import PropTypes from 'prop-types'
 
 const PostContainer = props => {
     // console.log(props);
@@ -12,6 +13,11 @@ const PostContainer = props => {
             ))}
         </>
     )
+}
+
+// PropTypes
+PostContainer.propTypes = {
+    dummydata: PropTypes.array.isRequired
 }
 
 export default PostContainer

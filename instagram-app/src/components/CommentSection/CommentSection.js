@@ -1,9 +1,21 @@
 import React from 'react';
+import Comment from './Comment';
+import PropTypes from 'prop-types';
 
-const CommentSection = () => {
+const CommentSection = props => {
+    // console.log(props.commentSection);
     return (
-        <section><p>Comment</p></section>
+        <>
+        {props.commentSection.map((comment, i) => (
+            <Comment comment={comment} key={i}/> 
+        ))}
+        </>
     )
+}
+
+// PropTypes
+CommentSection.propTypes = {
+    commentSection: PropTypes.array.isRequired,
 }
 
 export default CommentSection
