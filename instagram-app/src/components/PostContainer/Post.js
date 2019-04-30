@@ -2,16 +2,26 @@ import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
 
+import './PostContainer.css'
+
 const PostContainer = (props) =>{
     // console.log(props)
     // console.log(props.post.username)
     return(
-        <section>
-            <h1>{props.post.username}</h1><p>{props.post.likes}</p>
-            <img src={props.post.thumbnailUrl} alt="post logo" /><br/>
-            <img src={props.post.imageUrl} alt="related to post" />
-            <CommentSection commentSection={props.post.comments}/>
-            <input placeholder="Add new comment..."></input>
+        <section className="p-container">
+            <section className="post-tag">
+                <img src={props.post.thumbnailUrl} alt="post logo" />
+                <h1>{props.post.username}</h1><p>Likes: {props.post.likes}</p>
+            </section>
+            <section className="core-img">
+                <img src={props.post.imageUrl} alt="related to post" />
+            </section>
+            <section className="c-tag">
+                <section className="c-posts">
+                    <CommentSection commentSection={props.post.comments}/>
+                </section>
+                <input placeholder="Add new comment..."></input> 
+            </section>
         </section>
     )
 }
