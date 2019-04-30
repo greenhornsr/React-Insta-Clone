@@ -9,7 +9,7 @@ const PostContainer = props => {
         <>
             {props.dummydata.map((data) => (
                 // console.log(data.username),
-                <Post post={data} key={data.username} /> 
+                <Post post={data} key={data.timestamp} /> 
             ))}
         </>
     )
