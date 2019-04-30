@@ -8,17 +8,35 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      dummydata: dummyData
+      dummydata: [],
     }
   }
 
+  componentDidMount(){
+    this.setState({
+      dummydata: dummyData,
+      commentText: "",
+    })
+  }
+
+  handleChanges = event => {
+    console.log(event.target.value)
+    this.setState({
+      commentText: event.target.value, 
+    })
+  }
+
+  addComment = (id) => {
+    console.log(id)
+
+  }
 
 render(){
   // console.log(dummyData);
   return(
     <div className="App">
       <SearchBar />
-      <PostContainer dummydata={this.state.dummydata} />
+      <PostContainer dummydata={this.state.dummydata} handleChanges={this.handleChanges}/>
     </div>
     )
   }
