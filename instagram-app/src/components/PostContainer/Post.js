@@ -20,7 +20,7 @@ const PostContainer = (props) =>{
                 <section className="c-posts">
                     <CommentSection commentSection={props.post.comments}/>
                 </section>
-                <input placeholder="Add new comment..."></input> 
+                <input className="add-comment" placeholder="Add new comment..."></input> 
             </section>
         </section>
     )
