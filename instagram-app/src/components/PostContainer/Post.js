@@ -7,6 +7,12 @@ import './PostContainer.css'
 const PostContainer = (props) =>{
     // console.log(props)
     // console.log(props.post.username)
+    // console.log(props.post.comments[2].text)
+    const addComment = (event) => {
+        event.preventDefault();
+        props.addComment(props.post.timestamp);
+    }
+
     return(
         <section className="p-container">
             <section className="post-tag">
@@ -20,7 +26,9 @@ const PostContainer = (props) =>{
                 <section className="c-posts">
                     <CommentSection commentSection={props.post.comments}/>
                 </section>
-                <input className="add-comment" placeholder="Add new comment..." onChange={props.handleChanges}></input> 
+                <form onSubmit={addComment}>
+                    <input required className="add-comment" placeholder="Add new comment..." value={props.post.comments.text} onChange={props.handleChanges} name="text"></input>
+                </form> 
             </section>
         </section>
     )
