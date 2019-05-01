@@ -15,6 +15,8 @@ class App extends React.Component {
     this.state = {
       dummydata: [],
       user: "",
+      search: "",
+      filter: "",
       newComments: {
         username: "studlyTroll2040",
         text: "",
@@ -91,8 +93,8 @@ class App extends React.Component {
         dummydata: commPost,
       }
     })
-    console.log(this.state.dummydata)
-    console.log(this.state.newComments)
+    // console.log(this.state.dummydata)
+    // console.log(this.state.newComments)
   }
 
   addLike= (timestamp) => {
@@ -104,7 +106,7 @@ class App extends React.Component {
           
         }return post.timestamp === timestamp ?{...post, likes: post.likes +1}:post
       })
-      console.log(likePost)
+      // console.log(likePost)
       return {
         ...prevState, 
         dummydata: likePost,
@@ -112,20 +114,23 @@ class App extends React.Component {
     })
   }
 
-  commentFilter = (timestamp) => {
-    // console.log(this.state.dummydata[0].comments[0].text)
-    const postMap = this.state.dummydata.map(post => {
-      console.log(post.comments)
-      return post.comments
+  // Search Function
+  handleSearch = (string) => {
+    // console.log(string);
+    this.setState({
+      search: string,
     })
-    const cFilter = postMap.filter(user => {
-      return console.log(user.username)
+  }
+
+  handleFilter = () => {
+    this.setState({
+      filter: this.state.search,
+      search: '',
     })
-    return cFilter
   }
 
 
-  // Login Function
+  // Login Functions
   handleLogin = (user) => {
     // console.log(user);
     this.setState({
@@ -143,12 +148,14 @@ class App extends React.Component {
     localStorage.removeItem('user');
   }
 
+  // End Login Functions
+
 render(){
   // console.log(dummyData);
   return(
     <div className="App">
       {/* <Login handleLogin={this.handleLogin} user={this.state.user} /> */}
-      <SearchBar dummydata={this.state.dummydata} handleChanges={this.handleChanges} commentFilter={this.commentFilter} />
+      <SearchBar search={this.state.search} handleSearch={this.handleSearch} handleFilter={this.handleFilter} />
       <ComponentFromWithAuthenticate 
       // PostContainer props
       dummydata={this.state.dummydata} 
@@ -156,6 +163,7 @@ render(){
       handleChanges={this.handleChanges} 
       addComment={this.addComment} 
       addLike={this.addLike}
+      filterPost={this.state.filter}
       // login props
       handleLogin={this.handleLogin}
       handleLogout={this.handleLogout}

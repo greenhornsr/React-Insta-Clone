@@ -10,7 +10,13 @@ const PostContainer = props => {
             <section>
                 <button onClick={props.handleLogout}>Logout</button>
             </section>
-            {props.dummydata.map((data) => (
+            {props.filterPost ? (props.dummydata.filter(post => {
+                    return props.filterPost === post.username ?true:false;
+            }).map((data) => (
+                // console.log(data.username),
+                <Post post={data} newComments={props.newComments} key={data.timestamp} handleChanges={props.handleChanges} addComment={props.addComment} addLike={props.addLike} /> 
+            ))
+            ):props.dummydata.map((data) => (
                 // console.log(data.username),
                 <Post post={data} newComments={props.newComments} key={data.timestamp} handleChanges={props.handleChanges} addComment={props.addComment} addLike={props.addLike} /> 
             ))}

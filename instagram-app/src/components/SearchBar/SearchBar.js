@@ -4,16 +4,17 @@ import './SearchBar.css'
 const SearchBar = (props) => {
     // console.log(props)
     // console.log(props.dummydata)
-    const commentFilter = (event) =>{
-        event.preventDefault();
-        props.commentFilter(props.dummydata.username);
-    }
 
+    const handleSearch = (event) => {
+        event.preventDefault();
+        props.handleSearch(event.target.value);
+    }
+    // console.log(props.search);
     return (
         <>
-            <form onSubmit={commentFilter}>
-                <label>Search: </label>
-                <input placeholder="search here..."  onChange={props.handleChanges} value={props.dummydata.username} name="username"></input>
+            <form onSubmit={props.handleFilter}>
+                <label htmlFor="search">Search: </label>
+                <input placeholder="search here..."  onChange={handleSearch} value={props.search} name="search"></input>
             </form>
         </>
     )
