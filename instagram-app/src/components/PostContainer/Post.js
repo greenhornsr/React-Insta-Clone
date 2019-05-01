@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import './PostContainer.css'
 
+
 const PostContainer = (props) =>{
     // console.log(props)
     // console.log(props.post.username)
@@ -17,7 +18,7 @@ const PostContainer = (props) =>{
         <section className="p-container">
             <section className="post-tag">
                 <img src={props.post.thumbnailUrl} alt="post logo" />
-                <h1>{props.post.username}</h1><p>Likes: {props.post.likes}</p>
+                <h1>{props.post.username}</h1><p><i class="fas fa-heart"></i> : {props.post.likes}</p>
             </section>
             <section className="core-img">
                 <img src={props.post.imageUrl} alt="related to post" />

@@ -66,6 +66,7 @@ class App extends React.Component {
   // }
 
   //Aaron's CORRECT VERSION of addComment
+  
   addComment = (timestamp) => {
     this.setState(prevState =>{
     const commPost = prevState.dummydata.map(post => {
