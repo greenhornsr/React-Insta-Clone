@@ -4,6 +4,7 @@ import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import withAuthenticate from './components/authentication/withAuthenticate';
+import Login from './components/Login/Login'
 
 // HOC 
 const ComponentFromWithAuthenticate = withAuthenticate(PostContainer);
@@ -13,6 +14,7 @@ class App extends React.Component {
     super()
     this.state = {
       dummydata: [],
+      user: "",
       newComments: {
         username: "studlyTroll2040",
         text: "",
@@ -121,10 +123,21 @@ class App extends React.Component {
     return cFilter
   }
 
+
+  // Login Function
+  handleLogin = (user) => {
+    // console.log(user);
+    this.setState({
+      user: user,
+    })
+    // console.log(this.state)
+  }
+
 render(){
   // console.log(dummyData);
   return(
     <div className="App">
+      <Login handleLogin={this.handleLogin} user={this.state.user} />
       <SearchBar dummydata={this.state.dummydata} handleChanges={this.handleChanges} commentFilter={this.commentFilter} />
       <ComponentFromWithAuthenticate 
       dummydata={this.state.dummydata} 
