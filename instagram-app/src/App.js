@@ -75,7 +75,8 @@ class App extends React.Component {
         console.log(post);
         console.log(prevState.newComments);
       }
-      return post.timestamp === timestamp ?{...post, comments: [...post.comments, prevState.newComments] }:post
+      return post.timestamp === timestamp ?{...post, comments: [...post.comments, prevState.newComments] 
+      }:post
     })
       console.log(commPost)
       return {
@@ -86,6 +87,23 @@ class App extends React.Component {
     // console.log(this.state.dummydata)
   }
 
+  addLike= (timestamp) => {
+    this.setState(prevState =>{
+      const likePost = prevState.dummydata.map(post => {
+        if(post.timestamp === timestamp){
+          // console.log(post);
+          // console.log(post.likes);
+          
+        }return post.timestamp === timestamp ?{...post, likes: post.likes +1}:post
+      })
+      console.log(likePost)
+      return {
+        ...prevState, 
+        dummydata: likePost,
+      }
+    })
+  }
+
 
 
 render(){
@@ -93,7 +111,7 @@ render(){
   return(
     <div className="App">
       <SearchBar />
-      <PostContainer dummydata={this.state.dummydata} newComments={this.state.newComments} handleChanges={this.handleChanges} addComment={this.addComment} />
+      <PostContainer dummydata={this.state.dummydata} newComments={this.state.newComments} handleChanges={this.handleChanges} addComment={this.addComment} addLike={this.addLike} />
     </div>
     )
   }

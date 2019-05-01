@@ -13,12 +13,16 @@ const PostContainer = (props) =>{
         event.preventDefault();
         props.addComment(props.post.timestamp);
     }
+    const addLike = (event) => {
+        event.preventDefault();
+        props.addLike(props.post.timestamp);
+    }
 
     return(
         <section className="p-container">
             <section className="post-tag">
                 <img src={props.post.thumbnailUrl} alt="post logo" />
-                <h1>{props.post.username}</h1><p><i class="fas fa-heart"></i> : {props.post.likes}</p>
+                <h1>{props.post.username}</h1><p><i className="fas fa-heart" onClick={addLike}></i>  {props.post.likes}</p>
             </section>
             <section className="core-img">
                 <img src={props.post.imageUrl} alt="related to post" />
