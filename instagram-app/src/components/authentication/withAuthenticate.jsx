@@ -1,9 +1,10 @@
 import React from 'react'
 
-const withAuthenticate = (Arg) => 
+const withAuthenticate = (Component1) => (Component2) =>
     class extends React.Component {
         render() {
-            return <Arg {...this.props}/>;
+            return this.props.user ?<Component1 {...this.props} />:
+            <Component2 {...this.props}/>; 
         }
     };
 

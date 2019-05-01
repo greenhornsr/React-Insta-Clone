@@ -7,7 +7,7 @@ import withAuthenticate from './components/authentication/withAuthenticate';
 import Login from './components/Login/Login'
 
 // HOC 
-const ComponentFromWithAuthenticate = withAuthenticate(PostContainer);
+const ComponentFromWithAuthenticate = withAuthenticate(PostContainer)(Login);
 
 class App extends React.Component {
   constructor(){
@@ -25,6 +25,7 @@ class App extends React.Component {
   componentDidMount(){
     this.setState({
       dummydata: dummyData,
+      user:  localStorage.getItem('user') || '',
     })
   }
 
@@ -130,21 +131,35 @@ class App extends React.Component {
     this.setState({
       user: user,
     })
+    // setting up local storage(key, value) - both must be strings 
+    localStorage.setItem('user', user);
     // console.log(this.state)
+  }
+
+  handleLogout = () => {
+    this.setState({
+      user: '',
+    })
+    localStorage.removeItem('user');
   }
 
 render(){
   // console.log(dummyData);
   return(
     <div className="App">
-      <Login handleLogin={this.handleLogin} user={this.state.user} />
+      {/* <Login handleLogin={this.handleLogin} user={this.state.user} /> */}
       <SearchBar dummydata={this.state.dummydata} handleChanges={this.handleChanges} commentFilter={this.commentFilter} />
       <ComponentFromWithAuthenticate 
+      // PostContainer props
       dummydata={this.state.dummydata} 
       newComments={this.state.newComments} 
       handleChanges={this.handleChanges} 
       addComment={this.addComment} 
       addLike={this.addLike}
+      // login props
+      handleLogin={this.handleLogin}
+      handleLogout={this.handleLogout}
+      user={this.state.user}
       />
     </div>
     )
