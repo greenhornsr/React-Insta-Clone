@@ -3,6 +3,10 @@ import './App.css';
 import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
+import withAuthenticate from './components/authentication/withAuthenticate';
+
+// HOC 
+const ComponentFromWithAuthenticate = withAuthenticate(PostContainer);
 
 class App extends React.Component {
   constructor(){
@@ -122,7 +126,13 @@ render(){
   return(
     <div className="App">
       <SearchBar dummydata={this.state.dummydata} handleChanges={this.handleChanges} commentFilter={this.commentFilter} />
-      <PostContainer dummydata={this.state.dummydata} newComments={this.state.newComments} handleChanges={this.handleChanges} addComment={this.addComment} addLike={this.addLike} />
+      <ComponentFromWithAuthenticate 
+      dummydata={this.state.dummydata} 
+      newComments={this.state.newComments} 
+      handleChanges={this.handleChanges} 
+      addComment={this.addComment} 
+      addLike={this.addLike}
+      />
     </div>
     )
   }
