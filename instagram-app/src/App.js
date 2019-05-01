@@ -72,19 +72,20 @@ class App extends React.Component {
     const commPost = prevState.dummydata.map(post => {
       // console.log(post)
       if(post.timestamp === timestamp){
-        console.log(post);
-        console.log(prevState.newComments);
+        // console.log(post);
+        // console.log(prevState.newComments);
       }
       return post.timestamp === timestamp ?{...post, comments: [...post.comments, prevState.newComments] 
       }:post
     })
-      console.log(commPost)
+      // console.log(commPost)
       return {
         ...prevState,
         dummydata: commPost,
       }
     })
-    // console.log(this.state.dummydata)
+    console.log(this.state.dummydata)
+    console.log(this.state.newComments)
   }
 
   addLike= (timestamp) => {
@@ -104,13 +105,23 @@ class App extends React.Component {
     })
   }
 
-
+  commentFilter = (timestamp) => {
+    // console.log(this.state.dummydata[0].comments[0].text)
+    const postMap = this.state.dummydata.map(post => {
+      console.log(post.comments)
+      return post.comments
+    })
+    const cFilter = postMap.filter(user => {
+      return console.log(user.username)
+    })
+    return cFilter
+  }
 
 render(){
   // console.log(dummyData);
   return(
     <div className="App">
-      <SearchBar />
+      <SearchBar dummydata={this.state.dummydata} handleChanges={this.handleChanges} commentFilter={this.commentFilter} />
       <PostContainer dummydata={this.state.dummydata} newComments={this.state.newComments} handleChanges={this.handleChanges} addComment={this.addComment} addLike={this.addLike} />
     </div>
     )
