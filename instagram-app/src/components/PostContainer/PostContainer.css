@@ -36,6 +36,11 @@
     /* border: 1px solid red; */
 }
 
+.post-tag h1{
+    width: 20rem;
+    /* border: 1px solid red; */
+}
+
 .post-tag p{
     padding-right: 2rem;
 }
@@ -61,3 +66,33 @@
     font-size: 1rem;
     text-align: center;
 }
+
+
+/* Heart ICON Styling */
+/*
+.navlist {
+    position: relative;
+}
+
+.navlist li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: -.5rem;
+    left: 5rem;
+}
+
+.navlist li, .navlist a {
+    height: 45px;
+    display: block;
+    border: 1px solid red;
+}
+
+.likeheart{
+    left: 0px;
+    width: 47px;
+    mix-blend-mode: hard-light;
+    background: url('../../Sprite-heart-fadetoblack.png') 48px 0;
+}
+*/

@@ -10,11 +10,14 @@ const PostContainer = (props) =>{
     // console.log(props.post.username)
     // console.log(props.post.comments[2].text)
     const addComment = (event) => {
+        console.log(event);
         event.preventDefault();
         props.addComment(props.post.timestamp);
     }
     const addLike = (event) => {
         event.preventDefault();
+        // event.className.likeheart.style.background = 
+        //     url('../../Sprite-heart-fadetoblack.png');
         props.addLike(props.post.timestamp);
     }
 
@@ -23,6 +26,7 @@ const PostContainer = (props) =>{
             <section className="post-tag">
                 <img src={props.post.thumbnailUrl} alt="post logo" />
                 <h1>{props.post.username}</h1><p><i className="fas fa-heart" onClick={addLike}></i>  {props.post.likes}</p>
+                {/* <h1>{props.post.username}</h1><ul className="navlist"><li className="likeheart"  onClick={addLike}><a href=""></a></li></ul><p>  {props.post.likes}</p> */}
             </section>
             <section className="core-img">
                 <img src={props.post.imageUrl} alt="related to post" />

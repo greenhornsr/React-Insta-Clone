@@ -122,7 +122,8 @@ class App extends React.Component {
     })
   }
 
-  handleFilter = () => {
+  handleFilter = (event) => {
+    event.preventDefault();
     this.setState({
       filter: this.state.search,
       search: '',
