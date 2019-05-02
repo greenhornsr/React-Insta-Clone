@@ -45,28 +45,28 @@
     padding-right: 2rem;
 }
 
-.c-tag{
+/* Replaced with styled-components */
+/* .c-tag{
     width: 53.5%;
     height: 20rem;
     margin-left: 2.37rem;
-    /* border: 1px solid red; */
-}
+} */
 
-.c-posts{
+/* .c-posts{
     height: 90%;
     margin: 0 0 1.5rem 0;
     background-color: white;
     overflow: auto;
     border: 1px solid black;
-}
-
+} */
+/* 
 .add-comment{
     width: 98.5%;
     height: 10%;
     font-size: 1rem;
     text-align: center;
-}
-
+} */
+/* End Replaced with styled-components */
 
 /* Heart ICON Styling */
 /*

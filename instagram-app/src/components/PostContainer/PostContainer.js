@@ -2,13 +2,27 @@ import React from 'react'
 import Post from './Post'
 import PropTypes from 'prop-types'
 
+// styled library
+import styled from 'styled-components'
+
+const Logout = styled.button`
+    margin: 2rem 0 0 50rem;
+    font-size: 1rem;
+    color: red;
+    :hover{
+        color: yellow;
+        background-color: red;
+    }
+`
+
+
 const PostContainer = props => {
     // console.log(props);
     // console.log(props.dummydata);
     return (
         <>
             <section>
-                <button onClick={props.handleLogout}>Logout</button>
+                <Logout onClick={props.handleLogout}>Logout</Logout>
             </section>
             {props.filterPost ? (props.dummydata.filter(post => {
                     return props.filterPost === post.username ?true:false;

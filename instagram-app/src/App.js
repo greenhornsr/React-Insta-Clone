@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
 import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
@@ -8,7 +8,10 @@ import Login from './components/Login/Login'
 
 // styled Components
 import styled from 'styled-components'
-
+const AppWrapper = styled.div`
+  margin-top: 2rem;
+  text-align: center;
+`
 
 // HOC 
 const ComponentFromWithAuthenticate = withAuthenticate(PostContainer)(Login);
@@ -160,9 +163,9 @@ class App extends React.Component {
 render(){
   // console.log(dummyData);
   return(
-    <div className="App">
+    <AppWrapper>
       {/* <Login handleLogin={this.handleLogin} user={this.state.user} /> */}
-      <SearchBar search={this.state.search} handleSearch={this.handleSearch} handleFilter={this.handleFilter} />
+      <SearchBar user={this.state.user} search={this.state.search} handleSearch={this.handleSearch} handleFilter={this.handleFilter} handleLogout={this.handleLogout} />
       <ComponentFromWithAuthenticate 
       // PostContainer props
       dummydata={this.state.dummydata} 
@@ -176,7 +179,7 @@ render(){
       handleLogout={this.handleLogout}
       user={this.state.user}
       />
-    </div>
+    </AppWrapper>
     )
   }
 }

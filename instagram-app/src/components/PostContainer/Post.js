@@ -4,6 +4,31 @@ import PropTypes from 'prop-types';
 
 import './PostContainer.css'
 
+// Styled-Comoponents
+import styled from 'styled-components'
+
+const Comments = styled.section`
+    width: 53.5%;
+    height: 20rem;
+    margin-left: 2.37rem;
+`
+const CommentPost = styled.section`
+    height: 90%;
+    margin: 0 0 1.5rem 0;
+    background-color: white;
+    overflow: auto;
+    border: 1px solid black;
+`
+
+const InputComment = styled.input`
+    width: 98.5%;
+    height: 10%;
+    font-size: 1rem;
+    text-align: center;
+`
+
+
+
 
 const PostContainer = (props) =>{
     // console.log(props)
@@ -31,14 +56,14 @@ const PostContainer = (props) =>{
             <section className="core-img">
                 <img src={props.post.imageUrl} alt="related to post" />
             </section>
-            <section className="c-tag">
-                <section className="c-posts">
+            <Comments>
+                <CommentPost>
                     <CommentSection commentSection={props.post.comments}/>
-                </section>
+                </CommentPost>
                 <form onSubmit={addComment}>
-                    <input required className="add-comment" placeholder="Add new comment..." value={props.post.comments.text} onChange={props.handleChanges} name="text"></input>
+                    <InputComment required placeholder="Add new comment..." value={props.post.comments.text} onChange={props.handleChanges} name="text"></InputComment>
                 </form> 
-            </section>
+            </Comments>
         </section>
     )
 }
