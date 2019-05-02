@@ -8,20 +8,16 @@ const Header = styled.section`
     width: 60%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     // border: 1px solid red;
 `
-const LogoHeader = styled.section`
-    width: 80%;
-    height: 10rem;
-    margin: 10px;
-    border: 1px solid red;
-    background-image: url('../../Instagram-Logo-004.png')
-`
-
-const LogoImage = styled.img`
-    
-`
+// const LogoHeader = styled.section`
+//     width: 80%;
+//     height: 10rem;
+//     margin: 10px;
+//     border: 1px solid red;
+//     background-image: url('../../Instagram-Logo-004.png')
+// `
 
 const Label = styled.label`
     font-size: 1.5rem;
@@ -64,9 +60,9 @@ const SearchBar = (props) => {
     // console.log(props.search);
     return (
         <Header>
-            <LogoHeader>
+            {/* <LogoHeader>
                 <LogoImage></LogoImage>
-            </LogoHeader>
+            </LogoHeader> */}
             <form onSubmit={props.handleFilter}>
                 <Label htmlFor="search">Search: </Label>
                 <Input placeholder="search here..."  onChange={handleSearch} value={props.search} name="search"></Input>
