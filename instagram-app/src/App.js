@@ -6,8 +6,14 @@ import PostContainer from './components/PostContainer/PostContainer';
 import withAuthenticate from './components/authentication/withAuthenticate';
 import Login from './components/Login/Login'
 
+// styled Components
+import styled from 'styled-components'
+
+
 // HOC 
 const ComponentFromWithAuthenticate = withAuthenticate(PostContainer)(Login);
+
+
 
 class App extends React.Component {
   constructor(){
