@@ -1,0 +1,98 @@
+.p-container{
+    width: 60%;
+    height: 30rem;
+    margin: 2rem auto;
+    padding: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.core-img{
+    width: 40%;
+}
+
+.p-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.post-tag{
+    width: 100%;
+    height: 20%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    font-size: 1.5rem;
+    color: white;
+    /* border: 1px solid red; */
+}
+
+.post-tag img{
+    width: 12%;
+    height: 100%;
+    /* border: 1px solid red; */
+}
+
+.post-tag h1{
+    width: 20rem;
+    /* border: 1px solid red; */
+}
+
+.post-tag p{
+    padding-right: 2rem;
+}
+
+/* Replaced with styled-components */
+/* .c-tag{
+    width: 53.5%;
+    height: 20rem;
+    margin-left: 2.37rem;
+} */
+
+/* .c-posts{
+    height: 90%;
+    margin: 0 0 1.5rem 0;
+    background-color: white;
+    overflow: auto;
+    border: 1px solid black;
+} */
+/* 
+.add-comment{
+    width: 98.5%;
+    height: 10%;
+    font-size: 1rem;
+    text-align: center;
+} */
+/* End Replaced with styled-components */
+
+/* Heart ICON Styling */
+/*
+.navlist {
+    position: relative;
+}
+
+.navlist li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: -.5rem;
+    left: 5rem;
+}
+
+.navlist li, .navlist a {
+    height: 45px;
+    display: block;
+    border: 1px solid red;
+}
+
+.likeheart{
+    left: 0px;
+    width: 47px;
+    mix-blend-mode: hard-light;
+    background: url('../../Sprite-heart-fadetoblack.png') 48px 0;
+}
+*/
